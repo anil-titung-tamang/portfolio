@@ -1,70 +1,84 @@
-import React from 'react'
-import { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
+import { projects } from '../constants/index'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const ROTATE_INTERVAL = 5000 // ms between auto-hops — adjust to taste
 
 const ShowcaseSection = () => {
     const sectionRef = useRef(null)
-    const project1Ref = useRef(null)
-    const project2Ref = useRef(null)
-    const project3Ref = useRef(null)
- 
+    const featuredRef = useRef(null)
+    const listItem1Ref = useRef(null)
+    const listItem2Ref = useRef(null)
 
+    const [featuredIndex, setFeaturedIndex] = useState(0)
+
+    // Auto-hop between the three projects
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setFeaturedIndex((prev) => (prev + 1) % projects.length)
+        }, ROTATE_INTERVAL)
+        return () => clearInterval(interval)
+    }, [])
+
+    const featured = projects[featuredIndex]
+    const listOne = projects[(featuredIndex + 1) % projects.length]
+    const listTwo = projects[(featuredIndex + 2) % projects.length]
+
+    // Entrance animation on first scroll into view
     useGSAP(() => {
-           const projects = [project1Ref.current, project2Ref.current,
-            project3Ref.current]
-        
-        
-      projects.forEach((card, index) => {
-        gsap.fromTo(
-            card,
-            {
-                y: 50, opacity: 0
-            },
-            {
-                y: 0, 
-                opacity: 1,
-                duration: 1,
-                delay: 0.3 * (index + 1),
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top bottom-=100',
+        const cards = [featuredRef.current, listItem1Ref.current, listItem2Ref.current]
+
+        cards.forEach((card, index) => {
+            gsap.fromTo(
+                card,
+                { y: 50, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    delay: 0.3 * (index + 1),
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom-=100',
+                    }
                 }
-            }
-        )
-    })  
+            )
+        })
+
         gsap.fromTo(
-        sectionRef.current,
-        { opacity: 0 },
-        { opacity: 1, duaration: 1.5 })  
-    },[])
+            sectionRef.current,
+            { opacity: 0 },
+            { opacity: 1, duration: 1.5 })
+    }, [])
 
-
-
+    // Crossfade whenever the featured project hops
+    useGSAP(() => {
+        gsap.fromTo(
+            featuredRef.current,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }
+        )
+    }, [featuredIndex])
 
   return (
       <section id="work" ref={sectionRef} className="app-showcase">
           <div className="w-full">
               <div className="showcaselayout">
                   {/*left */}
-                  <div className="first-project-wrapper" ref={project1Ref}>
+                  <div className="first-project-wrapper" ref={featuredRef}>
                       <div className="image-wrapper">
-                          <img src="/images/project1.png" alt="dhukuti"/>
-                          
+                          <img src={featured.image} alt={featured.alt}/>
                       </div>
 
                       <div className="text-content">
-                          <h2>Shared Digital-Treasure Anytime-Anywhere</h2>
+                          <h2>{featured.title}</h2>
 
                           <p className="text-white-50 md:text-xl">
-                              
-                              An Web-Application buit using Django, Python & TailwindCSS 
-                              for a fast user-friendly experience.
-                              
+                              {featured.description}
                           </p>
                           
                       </div>
@@ -76,26 +90,26 @@ const ShowcaseSection = () => {
                   {/*right */}
 
                   <div className="project-list-wrapper overflow-hidden">
-                      <div className="project" ref={project2Ref}>
+                      <div className="project" ref={listItem1Ref}>
                           
-                          <div className="image-wrapper bg-[#ffefdb]">
-                              <img src="/images/project2.png" alt="Medimate"/>
+                          <div className={`image-wrapper ${listOne.bgColor}`}>
+                              <img src={listOne.image} alt={listOne.alt}/>
                           </div>
 
                           <h2>
-                              Ai-Powered Health Assistant
+                              {listOne.title}
                           </h2>
                           
                       </div>
 
-                      <div className="project" ref={project3Ref}>
+                      <div className="project" ref={listItem2Ref}>
                           
-                          <div className="image-wrapper bg-[#ffe7eb]">
-                              <img src="/images/project3.png" alt="MeriAama"/>
+                          <div className={`image-wrapper ${listTwo.bgColor}`}>
+                              <img src={listTwo.image} alt={listTwo.alt}/>
                           </div>
 
                           <h2>
-                              Ai-Powered Pregnancy Health Assistant
+                              {listTwo.title}
                           </h2>
                           
                       </div>

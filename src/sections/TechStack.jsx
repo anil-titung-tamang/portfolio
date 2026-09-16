@@ -1,11 +1,14 @@
 import React from 'react'
 import TitleHeader from '../components/TitleHeader'
 import { techStackIcons } from '../constants/index'
-import TechIcon from '../components/Models/TechLogos/TechIcon'
+import TechStackIconCard from '../components/TechStackIconCard'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 import { techStackImgs } from '../constants/index'
-    
+import { useGLTF } from '@react-three/drei'
+
+techStackIcons.forEach((icon) => useGLTF.preload(icon.modelPath))
+
 const TechStack = () => {
 
     useGSAP(() => {
@@ -38,7 +41,8 @@ const TechStack = () => {
                           <div className="tech-card-animated-bg" />
                           <div className="tech-card-content">
                               <div className="tech-icon-wrapper">
-                                  <TechIcon model={icon} />
+                                  <TechStackIconCard icon={icon} />
+                                
                               </div>
 
                               <div className="padding-x w-full">

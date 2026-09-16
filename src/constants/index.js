@@ -12,7 +12,7 @@ const navLinks = [
     link: "#skills",
   },
   {
-    name: "Testimonials",
+    name: "Repos & Contributions",
     link: "#testimonials",
   },
 ];
@@ -30,46 +30,80 @@ const words = [
 
 const counterItems = [
   { value: 3, suffix: "+", label: "Years of Experience" },
-  { value: 25, suffix: "+", label: "Satisfied Clients" },
+  { value: 4, suffix: "+", label: "Research Papers" },
   { value: 45, suffix: "+", label: "Completed Projects" },
-  { value: 90, suffix: "%", label: "Client Retention Rate" },
+  { value: 4.8, suffix: " M+", label: "Data Samples" },
 ];
 
 const logoIconsList = [
   {
-    imgPath: "/images/logos/company-logo-1.png",
+    imgPath: "/images/logos/github.png",
   },
   {
     imgPath: "/images/logos/company-logo-2.png",
   },
   {
-    imgPath: "/images/logos/company-logo-3.png",
+    imgPath: "/images/logos/huggingface.png",
   },
   {
     imgPath: "/images/logos/company-logo-4.png",
   },
   {
-    imgPath: "/images/logos/company-logo-5.png",
+    imgPath: "/images/logos/kaggle.png",
   },
   {
     imgPath: "/images/logos/company-logo-6.png",
   },
   {
-    imgPath: "/images/logos/company-logo-7.png",
+    imgPath: "/images/logos/mysql.png",
   },
   {
     imgPath: "/images/logos/company-logo-8.png",
   },
   {
-    imgPath: "/images/logos/company-logo-9.png",
+    imgPath: "/images/logos/numpy.png",
   },
   {
-    imgPath: "/images/logos/company-logo-10.png",
+    imgPath: "/images/logos/pandas.png",
   },
   {
-    imgPath: "/images/logos/company-logo-11.png",
+    imgPath: "/images/logos/postgre.png",
+  },
+  {
+    imgPath: "/images/logos/pytorch.png",
+  },
+  {
+    imgPath: "/images/logos/tensorflow.png",
   },
 ];
+
+const projects = [
+  {
+    title: "On-Device AI Emergency Response System",
+    description:
+      "A Flutter-based emergency-detection app fusing fine-tuned audio ML with GPS, accelerometer & gyroscope data for sub-3s alert latency.",
+    image: "/images/project1.jpg",
+    alt: "jibansetu",
+    bgColor: "bg-[#e0f2ff]",
+  },
+  {
+    title: "AI-Powered Health Assistant",
+    description:
+      "A Django app with XGBoost risk-prediction models and EasyOCR/TrOCR pipelines digitizing hospital records into actionable insights.",
+    image: "/images/project2.jpg",
+    alt: "Medimate",
+    bgColor: "bg-[#ffefdb]",
+  },
+  {
+    title: "AI-Powered Pregnancy Health Assistant",
+    description:
+      "A Django app with psychometric assessment and OCR-digitized records tailored for pregnancy health tracking.",
+    image: "/images/project3.jpg",
+    alt: "MeriAama",
+    bgColor: "bg-[#ffe7eb]",
+  },
+];
+
 
 const abilities = [
   {
@@ -94,47 +128,13 @@ const techStackImgs = [
     name: "Django Development",
     imgPath: "/images/logos/django.png",
   },
-  {
-    name: "Machine Learning",
-    imgPath: "/images/logos/machine.png",
-  },
-  {
-    name: "AI Development",
-    imgPath: "/images/logos/ai.png",
-  },
-  {
-    name: "Cyber Security",
-    imgPath: "/images/logos/cyber.png",
-  },
-  {
-    name: "Digital Marketing",
-    imgPath: "/images/logos/digital.png",
-  },
 ];
 
 const techStackIcons = [
   {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
-  },
-  {
     name: "Python Developer",
     modelPath: "/models/python-transformed.glb",
     scale: 0.8,
-    rotation: [0, 0, 0],
-  },
-  {
-    name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
-  },
-  {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
     rotation: [0, 0, 0],
   },
   {
@@ -143,46 +143,102 @@ const techStackIcons = [
     scale: 0.05,
     rotation: [0, -Math.PI / 4, 0],
   },
+  {
+    name: "Docker",
+    modelPath: "/models/moby_dock_docker_whale.glb",
+    scale: 1,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Hugging Face",
+    modelPath: "/models/hugging_face.glb",
+    scale: 3.74,
+    position: [-2.41, 0, 0],
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "AI/ML Engineering",
+    modelPath: "/models/ai-themed_computer_chip-optimized.glb",
+    scale: 2.99,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Voice Engineering",
+    modelPath: "/models/speech_bubble.glb",
+    scale: 0.01,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Flutter",
+    modelPath: "/models/flutter.glb",
+    scale: 30,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "Firebase",
+    modelPath: "/models/firebase_logo.glb",
+    scale: 45,
+    rotation: [0, 0, 0],
+  },
+  {
+    name: "AWS",
+    modelPath: "/models/aws_logo.glb",
+    scale: 0.45,
+    position: [-0.16, -2.16, 0],
+    rotation: [0, 0, 0],
+  },
 ];
 
 const expCards = [
   {
     review:
-      "Adrian brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
-    imgPath: "/images/exp1.png",
+      "Serving as a board member for Nepal's sovereign AI ecosystem initiative, engineering data infrastructure and evaluation pipelines for Nepali-optimized LLMs used in education and national AI policy.",
+    images: [
+      "/images/experience/himalaya/h1.jpeg",
+      "/images/experience/himalaya/h2.jpeg",
+      "/images/experience/himalaya/h3.jpeg",
+      "/images/experience/himalaya/h4.jpeg",
+      "/images/experience/himalaya/h5.jpeg",
+    ],
     logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2023 - Present",
+    title: "Board Member & Part-time Data Engineer — Himalaya AI Research Lab",
+    date: "May 2026 - Present",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Engineering data infrastructure and evaluation pipelines for Nepali-optimized LLMs used in education and national AI policy.",
+      "Supervising engineering interns on Supervised Fine-Tuning (SFT), RLVR dataset curation, and voice/speech data pipelines.",
+      "Presented on AI development in Nepal before the German Ambassador to Nepal, representing Himalaya AI Research Lab.",
     ],
   },
   {
     review:
-      "Adrian’s contributions to Docker's web applications have been outstanding. He approaches challenges with a problem-solving mindset.",
-    imgPath: "/images/exp2.png",
+      "Contributing AI/ML research support to a Southeast Asia-based nonprofit focused on responsible innovation, AI ethics, and technology governance across Asia.",
+    images: [
+      "/images/experience/ketemu/k1.png",
+      "/images/experience/ketemu/k2.png",
+      "/images/experience/ketemu/k3.png",
+    ],
     logoPath: "/images/logo2.png",
-    title: "Full Stack Developer",
-    date: "June 2020 - December 2023",
+    title: "AI Researcher Intern — KETEMU",
+    date: "June 2026 - Present",
     responsibilities: [
-      "Led the development of Docker's web applications, focusing on scalability.",
-      "Worked with backend engineers to integrate APIs seamlessly with the frontend.",
-      "Contributed to open-source projects that were used with the Docker ecosystem.",
+      "Contributing AI/ML research support to a Southeast Asia nonprofit (HQ: Jakarta, Indonesia) focused on responsible innovation, AI ethics, and technology governance.",
+      "Remote collaboration across a multi-country research team on tech-ethics-focused initiatives.",
     ],
   },
   {
     review:
-      "Adrian’s work on Appwrite’s mobile app brought a high level of quality and efficiency. He delivered solutions that enhanced our mobile experience & meet our product goals.",
-    imgPath: "/images/exp3.png",
+      "Led the college's technical club, organizing flagship events and running hands-on developer workshops for students.",
+    images: Array.from(
+      { length: 22 },
+      (_, i) => `/images/experience/creators-club/${i + 1}.jpeg`
+    ),
     logoPath: "/images/logo3.png",
-    title: "React Native Developer",
-    date: "March 2019 - May 2020",
+    title: "Technical Lead — Creators Club, Kantipur City College",
+    date: "2023 - 2026",
     responsibilities: [
-      "Built cross-platform mobile apps using React Native, integrating with Appwrite's backend services.",
-      "Improved app performance and user experience through code optimization and testing.",
-      "Coordinated with the product team to implement features based on feedback.",
+      "Led the college's technical club; organized and hosted flagship events including GameJam (a game-development event) and Voices & Vision (a public-speaking event).",
+      "Conducted hands-on workshops on Django and Git/GitHub for student developers.",
+      "Built and exhibited Smart Socket, an IoT-based project, at the KCC Exhibition 2024 as part of a hardware initiative.",
     ],
   },
 ];
@@ -202,48 +258,54 @@ const expLogos = [
   },
 ];
 
-const testimonials = [
+const repoShowcase = [
   {
-    name: "Esther Howard",
-    mentions: "@estherhoward",
+    name: "gymkhana",
+    mentions: "@HimalayaAI — Multilingual RLVR Environment Framework",
     review:
-      "I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
-    imgPath: "/images/client1.png",
+      "Built a synthetic-data and RLVR gym that runs GRPO-style parallel rollout groups per task, verifies outputs, assigns rewards, and exports reward-filtered SFT/ShareGPT training data with full task/rollout provenance. Pluggable task environments span Nepali/English transliteration, instruction-following, math reasoning, multi-hop QA, and sandboxed software-engineering tasks.",
+    imgPath: "/images/logos/github.png",
+    link: "https://github.com/HimalayaAI/gymkhana",
   },
   {
-    name: "Wade Warren",
-    mentions: "@wadewarren",
+    name: "JibanSetu",
+    mentions: "On-Device AI Emergency Response System",
     review:
-      "Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
-    imgPath: "/images/client3.png",
+      "Engineered an end-to-end multimodal emergency-detection pipeline (sub-3s alert latency) fusing fine-tuned audio ML with GPS, accelerometer, and gyroscope sensor data. Fine-tuned YAMNet achieving 91.8% accuracy and 92.2% weighted F1, vs. a 78.2% CNN spectrogram baseline.",
+    imgPath: "/images/logos/github.png",
+    link: "https://github.com/anil-titung-tamang/JibanSetu",
   },
   {
-    name: "Guy Hawkins",
-    mentions: "@guyhawkins",
+    name: "dataspeech-nepali",
+    mentions: "Speech Dataset Annotation Infrastructure",
     review:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    imgPath: "/images/client2.png",
+      "Adapted the Data-Speech pipeline for Nepali TTS, engineering a custom Devanagari syllable fallback via espeak-ng to replace English G2P dependencies. Automated extraction of acoustic metrics (PESQ, STOI, SI-SDR, pitch, SNR, reverberation) calibrated to Nepali speech for Parler-TTS conditioning.",
+    imgPath: "/images/logos/github.png",
+    link: "https://github.com/anil-titung-tamang/dataspeech-nepali",
   },
   {
-    name: "Marvin McKinney",
-    mentions: "@marvinmckinney",
+    name: "nepali-oov-tts-benchmark",
+    mentions: "Low-Resource Data Pipeline",
     review:
-      "Adrian was a pleasure to work with. He turned our outdated website into a fresh, intuitive platform that’s both modern and easy to navigate. Fantastic work overall.",
-    imgPath: "/images/client5.png",
+      "Built an OOV discovery/benchmarking framework (4.5pp gap: 22.6% OOV IER vs. 18.1% IV IER) and targeted recording-data pipelines for categorized fine-tuning — the first benchmark of its kind for Nepali TTS.",
+    imgPath: "/images/logos/github.png",
+    link: "https://github.com/anil-titung-tamang/nepali-oov-tts-benchmark",
   },
   {
-    name: "Floyd Miles",
-    mentions: "@floydmiles",
+    name: "tamang-tokenizer",
+    mentions: "NLP Infrastructure, Low-Resource Language Tech",
     review:
-      "Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional!",
-    imgPath: "/images/client4.png",
+      "A custom tokenizer and subword segmentation scheme for Tamang, a low-resource Himalayan language, supporting future language-model training and NLP infrastructure for underrepresented languages.",
+    imgPath: "/images/logos/github.png",
+    link: "https://github.com/anil-titung-tamang/tamang-tokenizer",
   },
   {
-    name: "Albert Flores",
-    mentions: "@albertflores",
+    name: "himalaya-gemma-nepali-asr-demo",
+    mentions: "🤗 Hugging Face Space — Live Nepali Speech-to-Text Demo",
     review:
-      "Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend and backend dev are top-notch.",
-    imgPath: "/images/client6.png",
+      "An interactive Space transcribing Nepali speech to text in real time, built on a Gemma-based Nepali ASR model developed at Himalaya AI Research Lab.",
+    imgPath: "/images//logos/huggingface.png",
+    link: "https://huggingface.co/spaces/Titung/himalaya-gemma-nepali-asr-demo",
   },
 ];
 
@@ -260,7 +322,7 @@ const socialImgs = [
   },
   {
     name: "x",
-    url: "https://www.x.com/",
+    url: "https://x.com/urtitung",
     imgPath: "/images/x.png",
   },
   {
@@ -274,10 +336,11 @@ export {
   words,
   abilities,
   logoIconsList,
+  projects,
   counterItems,
   expCards,
   expLogos,
-  testimonials,
+  repoShowcase,
   socialImgs,
   techStackIcons,
   techStackImgs,

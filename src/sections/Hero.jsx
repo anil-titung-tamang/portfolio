@@ -69,8 +69,8 @@ const Hero = () => {
 
                       <p className="text-white-50 md:text-xl relative z-10
                       pointer-events-none">
-                          Hi, I'm Anil, a developer based in Nepal with a passion
-                          for code.
+                          Hi, I'm Anil, a AI/ML & Data Engineer based in Nepal with a
+                          <br />passion for code, research and meaningful innovation.
                         
                       </p>
 

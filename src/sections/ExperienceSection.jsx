@@ -2,6 +2,7 @@ import React from 'react'
 import TitleHeader from '../components/TitleHeader'
 import { expCards } from '../constants/index'
 import GlowCard from '../components/GlowCard'
+import ImageMarquee from '../components/ImageMarquee'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -74,26 +75,25 @@ const ExperienceSection = () => {
                   <div className="relative z-50 xl:space-y-32 space-y-10">
                       {expCards.map((card, index) => (
                           <div key={card.title} className="exp-card-wrapper">
-                              <div className="xl:w-2/6">
-                                  <GlowCard card={card} index={index}>
+                              <div className="xl:w-2/6 ">
+                                  <GlowCard card={card} index={index} showRating={false}>
                                       <div>
-                                          <img src={ card.imgPath} alt={card.title} />
+                                          <ImageMarquee images={card.images} alt={card.title} />
                                       </div>
                                       
                                   </GlowCard>
                               </div>
 
                               <div className="xl:w-4/6">
-                                  <div className="felx items-start">
+                                  <div className="flex items-start">
                                       <div className="timeline-wrapper">
                                           <div className="timeline" />
                                           <div className="gradient-line w-1 h-full"/>
                                       </div>
 
-                                      <div className="expText flex xl:gap-20 md: gap-10 gap-5relative z-20">
+                                      <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-[60]">
                                           <div className="timeline-logo">
-                                              <img src={card.logoPath} alt="logo"/>
-                                              
+                                             <img src={card.logoPath} alt="logo" className="w-full h-full object-contain p-2" />
                                           </div>
 
                                           <div>

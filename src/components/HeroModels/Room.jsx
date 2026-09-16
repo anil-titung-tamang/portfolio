@@ -1,6 +1,6 @@
 
-import React, { useRef } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import React, { useRef, useEffect } from "react";
+import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
 import { EffectComposer, SelectiveBloom } from "@react-three/postprocessing";
 import { BlendFunction } from "postprocessing";
 import * as THREE from "three";
@@ -9,6 +9,13 @@ export function Room(props) {
   const { nodes, materials } = useGLTF("/models/optimized-room.glb");
   const screensRef = useRef();
   const matcapTexture = useTexture("/images/textures/mat1.png");
+  const screenTexture = useVideoTexture("/images/screen.mp4");
+
+  useEffect(() => {
+    screenTexture.wrapS = screenTexture.wrapT = THREE.RepeatWrapping;
+    screenTexture.repeat.set(3.1, 3.7);
+    screenTexture.offset.set(-10, -10);
+  }, [screenTexture]);
 
   const curtainMaterial = new THREE.MeshPhongMaterial({
     color: "#d90429",
@@ -38,15 +45,20 @@ export function Room(props) {
     color: "#000",
   });
 
+  const screenMaterial = new THREE.MeshBasicMaterial({
+    map: screenTexture,
+    toneMapped: false,
+  });
+
   return (
     <group {...props} dispose={null}>
       <EffectComposer>
         <SelectiveBloom
           selection={screensRef}
-          intensity={1.5} // Strength of the bloom
-          luminanceThreshold={0.2} // Minimum luminance needed
-          luminanceSmoothing={0.9} // Smooth transition
-          blendFunction={BlendFunction.ADD} // How it blends
+          intensity={1.5}
+          luminanceThreshold={0.2}
+          luminanceSmoothing={0.9}
+          blendFunction={BlendFunction.ADD}
         />
       </EffectComposer>
       <mesh
@@ -63,7 +75,7 @@ export function Room(props) {
       <mesh
         ref={screensRef}
         geometry={nodes.emis_lambert1_0.geometry}
-        material={materials.lambert1}
+        material={screenMaterial}
       />
       <mesh
         geometry={nodes.handls_blinn1_0.geometry}
