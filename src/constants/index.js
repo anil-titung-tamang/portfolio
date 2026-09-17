@@ -13,7 +13,7 @@ const navLinks = [
   },
   {
     name: "Repos & Contributions",
-    link: "#testimonials",
+    link: "#repos",
   },
 ];
 
